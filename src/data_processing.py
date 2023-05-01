@@ -19,7 +19,8 @@ class DataProcessing:
 
         self.df = df
 
-    def create_dataset(self):
+    @staticmethod
+    def create_dataset():
         """
         Creates the fictional golf dataset using the given days, outlook, and play golf data.
 
@@ -42,8 +43,8 @@ class DataProcessing:
         column_values = ['Day', 'Outlook', 'Play Golf']
 
         # Create a dataframe
-        self.df = pd.DataFrame(data=combined_golf_data, columns=column_values)
-        return self.df
+        df = pd.DataFrame(data=combined_golf_data, columns=column_values)
+        return df
 
     def encode_features(self):
         """
