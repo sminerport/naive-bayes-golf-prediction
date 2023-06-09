@@ -1,0 +1,57 @@
+@startuml NaiveBayesSequenceDiagram
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+skinparam sequence {
+    ArrowColor DeepSkyBlue
+    LifeLineBorderColor blue
+    LifeLineBackgroundColor PaleTurquoise
+    ParticipantBorderColor DeepSkyBlue
+    ParticipantBackgroundColor DodgerBlue
+    ParticipantFontName Impact
+    ParticipantFontSize 17
+    ParticipantFontColor #A9DCDF
+}
+
+title Sequence Diagram for Golf Predictor Application
+
+actor User
+participant "main" as Main
+participant "DataProcessing\nInstance" as DP
+participant "NaiveBayesGolfModel\nInstance" as NB
+
+User -> Main: Start Application
+activate Main
+
+Main -> DP: create_dataset()
+activate DP
+Main <-- DP: golf_df
+
+Main -> DP: add_laplace_correction(golf_df)
+Main <-- DP: golf_df
+
+Main -> DP: encode_features()
+Main <-- DP: outlook_encoded, play_encoded
+deactivate DP
+
+Main -> NB: train_model(outlook_encoded, play_encoded)
+activate NB
+Main <-- NB: model
+
+Main -> NB: create_frequency_table(golf_df)
+Main <-- NB: freq_table
+
+Main -> NB: create_likelihood_table(freq_table)
+Main <-- NB: likelihood_table
+
+Main -> NB: create_posterior_table(likelihood_table)
+Main <-- NB: posterior_table
+
+Main -> NB: make_predictions(le_outlook, le_play)
+Main <-- NB: predictions
+deactivate NB
+
+Main -> User: Display predictions
+deactivate Main
+User -> User: Interacts with results
+
+@enduml
