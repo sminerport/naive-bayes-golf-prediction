@@ -7,6 +7,7 @@ skinparam activity {
     BackgroundColor DodgerBlue
     BorderColor DeepSkyBlue
     ArrowColor black
+    FontColor white
 }
 
 title Golf Prediction Application Activity Diagram

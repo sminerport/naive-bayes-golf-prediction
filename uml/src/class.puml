@@ -1,9 +1,9 @@
-@startuml
+@startuml NaiveBayesClassDiagram
 skinparam backgroundColor #EEEBDC
 skinparam handwritten true
 skinparam class {
-    BackgroundColor PaleGreen
-    ArrowColor SeaGreen
+  BackgroundColor PaleGreen
+  ArrowColor SeaGreen
 }
 
 title Class Diagram for Golf Predictor Application
