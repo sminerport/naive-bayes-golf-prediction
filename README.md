@@ -38,7 +38,7 @@ This diagram shows the classes used in the application and their relationships.
 This diagram shows the sequence of interactions between different components in the application.
 
 ### Activity Diagram
-![Activity Diagram](uml\output\activity\NaiveBayesActivityDiagram.png)
+![Activity Diagram](uml/output/activity/NaiveBayesActivityDiagram.png)
 
 This diagram visualizes the workflow logic captured by the application.
 
