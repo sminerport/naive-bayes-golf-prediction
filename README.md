@@ -28,12 +28,12 @@ The implementation uses the `CategoricalNB` model from the scikit-learn package 
 The following diagrams help illustrate the structure and flow of the application.
 
 ### Class Diagram
-![Class Diagram](uml\output\class\NaiveBayesClassDiagram.png)
+![Class Diagram](uml/output/class/NaiveBayesClassDiagram.png)
 
 This diagram shows the classes used in the application and their relationships.
 
 ### Sequence Diagram
-![Sequence Diagram](uml\output\sequence\NaiveBayesSequenceDiagram.png)
+![Sequence Diagram](uml/output/sequence/NaiveBayesSequenceDiagram.png)
 
 This diagram shows the sequence of interactions between different components in the application.
 
