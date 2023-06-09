@@ -42,6 +42,18 @@ This diagram shows the sequence of interactions between different components in 
 
 This diagram visualizes the workflow logic captured by the application.
 
+## Example Output
+
+This section shows screenshots from a successful run of the program.
+
+<img src="images/successful-output-1.png" width="350">
+
+This screenshot shows the initial state of the dataset and the application of the Laplacian correction.
+
+<img src="images/successful-output-2.png" width="500">
+
+This screenshot shows the resulting frequency table, likelihood table, and the final predictions made by the application.
+
 ## Prerequisites
 
 Make sure you have installed all of the following prerequisites on your development machine:
