@@ -23,13 +23,57 @@ The Python script performs the following steps:
 
 The implementation uses the `CategoricalNB` model from the scikit-learn package to handle categorical feature variables.
 
+## UML Diagrams
+
+The following diagrams help illustrate the structure and flow of the application.
+
+### Class Diagram
+![Class Diagram](uml\output\class\NaiveBayesClassDiagram.png)
+
+This diagram shows the classes used in the application and their relationships.
+
+### Sequence Diagram
+![Sequence Diagram](uml\output\sequence\NaiveBayesSequenceDiagram.png)
+
+This diagram shows the sequence of interactions between different components in the application.
+
+### Activity Diagram
+![Activity Diagram](uml\output\activity\NaiveBayesActivityDiagram.png)
+
+This diagram visualizes the workflow logic captured by the application.
+
+## Prerequisites
+
+Make sure you have installed all of the following prerequisites on your development machine:
+
+- Python 3.x - [Download & Install Python](https://www.python.org/downloads/)
+- Pip - [Download & Install Pip](https://pip.pypa.io/en/stable/installing/)
+
+## Installation
+
+Clone the repository and navigate to the project folder. Run pip install to install necessary packages:
+
+```bash
+git clone https://github.com/sminerport/naive-bayes-golf-prediction.git
+cd naive-bayes-golf-prediction
+pip install -r requirements.txt
+```
+
 ## Usage
 
-To run the script, simply execute `NaiveBayes.py` using your Python interpreter. The script includes the sample dataset, so no additional data input is needed.
+To run the script, simply execute main.py using your Python interpreter. The script includes the sample dataset, so no additional data input is needed.
 
 ## Contributing
 
 Feel free to fork this repository, make improvements, and submit pull requests. We welcome contributions that can help improve the code, write-up, or overall understanding of the Naive Bayes classifier and its application in this context.
 
+## Future Improvements
+
+We aim to improve this application by:
+
+* Adding more datasets for testing and validation.
+* Improving the Naive Bayes algorithm for better performance.
+
 ## License
+
 This project is licensed under the [MIT License](LICENSE).
