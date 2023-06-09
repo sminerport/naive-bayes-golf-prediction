@@ -16,10 +16,13 @@ The goal is to predict whether or not we will play golf on a given day based on 
 
 The Python script performs the following steps:
 
-1. Applies the Laplacian correction technique to handle zero-probability problems.
-2. Converts the dataset into a frequency table.
-3. Creates a likelihood table by finding relevant probabilities.
-4. Calculates the posterior probabilities for each class.
+1. **Applies the Laplacian correction:** This technique handles zero-probability problems by adding a small, non-zero value to the counts.
+
+2. **Creates a Frequency Table:** The dataset is converted into a table that summarizes how often each weather condition leads to playing or not playing golf.
+
+3. **Creates a Likelihood Table:** Using the frequency table, we calculate conditional probabilities of playing golf given a certain weather outlook. These probabilities, also known as likelihoods, are obtained by normalizing frequencies within each weather condition.
+
+4. **Calculates Posterior Probabilities:** These are the probabilities of playing golf given the evidence (weather condition). We calculate this using Bayes' theorem, which considers both the likelihood and prior probabilities. The CategoricalNB model from the scikit-learn package then uses these posterior probabilities to make predictions.
 
 The implementation uses the `CategoricalNB` model from the scikit-learn package to handle categorical feature variables.
 
