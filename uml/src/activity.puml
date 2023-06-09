@@ -1,0 +1,42 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+skinparam activity {
+    StartColor DeepSkyBlue
+    EndColor DeepSkyBlue
+    BackgroundColor DodgerBlue
+    BorderColor DeepSkyBlue
+    ArrowColor black
+}
+
+title Golf Prediction Application Activity Diagram
+
+start
+
+partition main {
+    :Start Application;
+    :Display Original Dataset;
+    :Display Dataset w/ Laplacian Transformation;
+}
+
+partition DataProcessing {
+    :Create Dataset;
+    :Add Laplace Correction to Dataset;
+    :Encode Features;
+}
+
+partition NaiveBayesGolfModel {
+    :Train Model;
+    :Create Frequency Table;
+    :Create Likelihood Table;
+    :Create Posterior Probability Table;
+    :Make Predictions;
+}
+
+partition main {
+    :Display Predictions;
+}
+
+stop
+
+@enduml

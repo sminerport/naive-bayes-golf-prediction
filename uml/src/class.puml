@@ -1,0 +1,34 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+skinparam class {
+    BackgroundColor PaleGreen
+    ArrowColor SeaGreen
+}
+
+title Class Diagram for Golf Predictor Application
+
+class DataProcessing {
+  df: pandas.DataFrame
+  le_outlook: LabelEncoder
+  le_play: LabelEncoder
+  create_dataset()
+  add_laplace_correction(df)
+  encode_features()
+}
+
+class NaiveBayesGolfModel {
+  model: CategoricalNB
+  outlook_play_df: pandas.DataFrame
+  outlook_likelihood_df: pandas.DataFrame
+  posterior_probability: pandas.DataFrame
+  train_model(outlook_encoded, play_encoded)
+  make_predictions(le_outlook, le_play)
+  create_frequency_table(df)
+  create_likelihood_table(outlook_play_df)
+  create_posterior_table(outlook_likelihood_df)
+}
+
+DataProcessing --> NaiveBayesGolfModel : Encodes Data For
+
+@enduml

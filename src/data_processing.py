@@ -1,4 +1,22 @@
-# data_processing.py
+"""
+data_processing.py
+==================
+
+This module contains the DataProcessing class, which provides methods to process
+a golf dataset for a Naive Bayes classifier.
+
+The DataProcessing class includes methods to:
+- Create a fictional dataset for golf play decisions based on weather conditions.
+- Encode categorical features into numerical ones.
+- Add Laplace correction records to the dataset to avoid zero probabilities in
+  the Naive Bayes calculations.
+
+Classes:
+--------
+DataProcessing
+
+"""
+
 import numpy as np
 import pandas as pd
 from sklearn import preprocessing
@@ -9,7 +27,7 @@ class DataProcessing:
     A class to process the golf prediction dataset.
     """
 
-    def __init__(self, df=None):
+    def __init__(self, df=pd.DataFrame()):
         """
         Initializes the DataProcessing class.
 
@@ -55,10 +73,34 @@ class DataProcessing:
         """
 
         # create label encoders
-        le_outlook = preprocessing.LabelEncoder()
-        le_play = preprocessing.LabelEncoder()
+        self.le_outlook = preprocessing.LabelEncoder()
+        self.le_play = preprocessing.LabelEncoder()
 
         # Convert string labels into numbers
-        outlook_encoded = le_outlook.fit_transform(self.df['Outlook'])
-        play_encoded = le_play.fit_transform(self.df['Play Golf'])
+        outlook_encoded = self.le_outlook.fit_transform(self.df['Outlook'])
+        play_encoded = self.le_play.fit_transform(self.df['Play Golf'])
         return outlook_encoded, play_encoded
+
+    @staticmethod
+    def add_laplace_correction(df):
+        """
+        Adds Laplace correction records to the golf dataset.
+
+        Args:
+            df (pd.DataFrame): The golf dataset.
+
+        Returns:
+            pd.DataFrame: The golf dataset with Laplace correction records added.
+        """
+
+        days_test = list(range(15, 21))
+        outlook_laplace = ['Rainy', 'Rainy',
+                           'Overcast', 'Overcast', 'Sunny', 'Sunny']
+        play_laplace = ['No', 'Yes', 'No', 'Yes', 'No', 'Yes']
+
+        laplace_data = np.column_stack(
+            (days_test, outlook_laplace, play_laplace))
+        laplace_df = pd.DataFrame(data=laplace_data, columns=df.columns)
+        df = pd.concat([df, laplace_df], ignore_index=True)
+
+        return df
